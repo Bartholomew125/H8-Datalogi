@@ -1,7 +1,6 @@
 def logarithm(n: int) -> int:
-    """
-    Returns the integer base-2 logarithm of n.
-
+    """Returns the integer base-2 logarithm of n.
+    
     >>logarithm(9)
     3
     >>logarithm(8)
