@@ -1,6 +1,5 @@
 def sum_even(n: int) -> int:
-    """
-    Returns the sum up to an even number n.
+    """Returns the sum up to an even number n.
 
     >>sum_even(8)
     20
