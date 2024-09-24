@@ -1,6 +1,5 @@
 def factorial(n: int) -> int:
-    """
-    Returns the factorial of n.
+    """Returns the factorial of n.
 
     >>factorial(5)
     120
