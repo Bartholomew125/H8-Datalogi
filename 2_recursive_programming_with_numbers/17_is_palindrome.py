@@ -1,3 +1,5 @@
+# Findes allerede i mappen, hvorved forklaring af løsning også ligger. 
+
 def is_palindrome(n: int) -> bool:
     """ Check if n is a palindrome
     >>> is_palindrome(12321)
