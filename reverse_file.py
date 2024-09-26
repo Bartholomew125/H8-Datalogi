@@ -5,15 +5,9 @@ def create_reverse_txt(file: str) -> None:
     Reads .txt file, copying and reversing
     file title, and reversing content line by line and.
     """
-    reverse_title = ""
-    reverse_content = ""
     content = reverse_list_to_str(read_file(file).splitlines()) # Reads file content, and reverses lines so that last line appear first
     title = file.split(".")[0] # removes .txt surfix from title
-    for char in reversed(title):
-        reverse_title += char
-    for char in reversed(content):
-        reverse_content += char
-    write_file(reverse_title, reverse_content) # Creates file with content, and title reversed, so that first line is first, and each line is backwards
+    write_file(title[::-1], content[::-1]) # Creates file with content, and title reversed, so that first line is first, and each line is backwards
     print("Reversed file created!") #Prints that the file was created to user
 
 def reverse_list_to_str(w: list[str]) -> str:
