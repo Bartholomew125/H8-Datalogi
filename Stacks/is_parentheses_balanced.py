@@ -16,7 +16,7 @@ def is_parentheses_balanced(expression: str) -> bool:
         ']': '[',
     }
 
-    # Goes expression and appends open parentheses, and checks if closing parentheses match last parentheses
+    # Goes trough expression and appends open parentheses, and checks if closing parentheses match last parentheses
     for char in expression:
         # If open parentheses, append it to stack
         if char in parentheses.values():
