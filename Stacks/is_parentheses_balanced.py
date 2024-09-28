@@ -1,11 +1,11 @@
 def is_parentheses_balanced(expression: str) -> bool:
     """
     Checks if parentheses are balanced.
-    >>> is_parentheses_balanced("{[()]}")
+    >>> is_parentheses_balanced("{[Hel(lo)]Wrld}")
     True
-    >>> is_parentheses_balanced("{[()}]")
+    >>> is_parentheses_balanced("{[(Hello world)}]")
     False
-    >>> is_parentheses_balanced("(()")
+    >>> is_parentheses_balanced("((Hello)")
     False
     """
     # Defining parentheses and stack
