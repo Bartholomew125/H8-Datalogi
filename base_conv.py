@@ -72,7 +72,7 @@ def ConvertBaseToBase(n: str, fb: int, tb: int) -> str:
 
 if __name__ == "__main__":
     # Get inputs
-    number = sys.argv[1]
+    number = sys.argv[1].upper()
     from_base = int(sys.argv[2])
     to_base = int(sys.argv[3])
 
