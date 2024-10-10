@@ -31,7 +31,7 @@ def distance(p1: Point2d, p2: Point2d) -> float:
 def equals(p1: Point2d, p2: Point2d) -> bool:
     """ Determins wether p1 and p2 represents the same point
     """
-    return True if (p1.x == p2.x and p1.y == p2.y) else False
+    return (p1.x == p2.x and p1.y == p2.y)
 
 def copy(p: Point2d) -> Point2d:
     """ Returns a copy of the point
