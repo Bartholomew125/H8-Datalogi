@@ -21,7 +21,7 @@ def move(p: Point2d, dx: float, dy: float) -> None:
 def distance_to_origin(p: Point2d) -> float:
     """ Returns p's distance to the origin
     """
-    return (p.x*p.x +. p.y*p.y)**(1/2)
+    return (p.x*p.x + p.y*p.y)**(1/2)
 
 def distance(p1: Point2d, p2: Point2d) -> float:
     """ Returns the distance between p1 and p2
