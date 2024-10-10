@@ -3,6 +3,7 @@ from dataclasses import dataclass
 # Decorator
 @dataclass
 class Point2d:
+    """Points in plane."""
     x: float
     y: float
 
