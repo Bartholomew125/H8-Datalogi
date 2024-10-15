@@ -14,7 +14,7 @@ def make_polygon(vertices: list[point2d.point2D]) -> Polygon:
 
 def copy(polygon: Polygon) -> Polygon:
     """ Returns copy of a given polygon"""
-    return Polygon(polygon.vertices)
+    return Polygon(polygon.vertices.copy())
 
 def equals(polygon1: Polygon, polygon2: Polygon) -> bool:
     """ Returns rether two polygons are the same, disregaring collinear points"""
@@ -91,23 +91,24 @@ def longest_side(polygon: Polygon) -> float:
     """ Returns the length of longest side of a polygon"""
 
     # Filters collinear points from polygon
-    filtered_polygon = _filter_collinear_points(polygon.vertices)
+    filtered_polygon = _filter_collinear_points(polygon)
 
     # Saves last index to avoid going out of range
-    last_index = len(filtered_polygon) - 1
+    last_index = len(filtered_polygon.vertices) - 1
 
     # Compares distances between the points, saves largest
-    longest_side = point2d.distance(filtered_polygon[0], filtered_polygon[1])
-    for i, vertex in enumerate(filtered_polygon):
+    longest_side = point2d.distance(filtered_polygon.vertices[0], filtered_polygon.vertices[1])
+    for i, vertex in enumerate(filtered_polygon.vertices):
 
         # If at last index, get distance from last to first vertex
         if (i == last_index and
-            point2d.distance(vertex, filtered_polygon[0] > longest_side)):
-                longest_side = point2d.distance(vertex, filtered_polygon[0])
+            point2d.distance(vertex, filtered_polygon.vertices[0]) > longest_side):
+                longest_side = point2d.distance(vertex, filtered_polygon.vertices[0])
 
         # Else, compare distance of current to next vertex
-        elif point2d.distance(vertex, filtered_polygon[i + 1]) > longest_side:
-            longest_side = point2d.distance(vertex, filtered_polygon[i + 1])
+        elif (i < last_index and
+              point2d.distance(vertex, filtered_polygon.vertices[i + 1]) > longest_side):
+                longest_side = point2d.distance(vertex, filtered_polygon.vertices[i + 1])
 
     # Returns longest distance
     return longest_side
@@ -248,7 +249,7 @@ def is_quadrilateral(polygon: Polygon) -> bool:
     return corners == 4
 
 
-def _filter_collinear_points(polygon: Polygon) -> list:
+def _filter_collinear_points(polygon: Polygon) -> Polygon:
     """ Helper function, returns all collinear points from a """
     filtered_polygon = copy(polygon)
 
@@ -276,7 +277,7 @@ def _filter_collinear_points(polygon: Polygon) -> list:
             collinear_points.append(i + 1)
 
     # Removes each collinear point from filltered polygon
-    for index in reversed(filtered_polygon.vertices):
+    for index in reversed(collinear_points):
         filtered_polygon.vertices.pop(index)
     
     # Returns filttered polygon
